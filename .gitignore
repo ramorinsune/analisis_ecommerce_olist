@@ -1,0 +1,25 @@
+# Entorno virtual
+.venv/
+
+# Claves
+.env
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Datos (brutos o pesados): se conserva la carpeta, no su contenido
+data/raw/*
+!data/raw/.gitkeep
+*.duckdb
+
+# Sistema / editor
+.DS_Store
+.vscode/
+
+# Notas
+TODO.md
+
+# Configuración local de Claude Code
+CLAUDE.md

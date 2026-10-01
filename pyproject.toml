@@ -1,0 +1,4 @@
+[tool.pytest.ini_options]
+# Permite hacer 'from modulo import ...' en los tests, igual que hace main.py desde src/
+pythonpath = ["src"]
+testpaths = ["tests"]
