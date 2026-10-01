@@ -1,39 +1,34 @@
-# Título del proyecto
+# Análisis de negocio de un e-commerce: Olist
 
-Una o dos frases: qué datos se analizan y de dónde salen.
+Análisis de unos 100.000 pedidos de [Olist](https://olist.com), un marketplace brasileño, entre 2016 y 2018, a partir de 8 tablas relacionadas: clientes, pedidos, artículos, pagos, reseñas, productos, vendedores y geolocalización.
 
-**Pregunta principal:** ¿qué se quiere responder y para quién?
+**Pregunta principal:** ¿qué hace que un cliente vuelva a comprar, y qué partes del negocio generan más ingresos?
 
-Fecha de los datos y volumen (por ejemplo: foto fija del 1 de octubre de 2026, 650 registros).
+> 🚧 Proyecto en curso.
 
-## Conclusiones principales
+## Preguntas de negocio
 
-El análisis completo está en [`notebooks/analisis.ipynb`](notebooks/analisis.ipynb).
+1. **Ventas:** ¿cómo evolucionan los pedidos y los ingresos por mes? ¿Cuál es el ticket medio?
+2. **Retención:** ¿qué porcentaje de clientes repite? Análisis de cohortes por mes de la primera compra.
+3. **Logística y satisfacción:** ¿cómo afecta el retraso en la entrega a la nota de las reseñas?
+4. **Producto:** ¿qué categorías generan más ingresos y cuáles tienen peores valoraciones?
+5. **Geografía:** ¿en qué estados se concentran clientes y vendedores? ¿Dónde tardan más los envíos?
+6. **Pagos:** ¿qué métodos de pago y cuántas cuotas se usan?
 
-1. **Conclusión principal en negrita.** Dato que la respalda.
-2. ...
-3. ...
+## Datos
 
-![Descripción de la figura](reports/figuras/01_figura.png)
+[Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce), publicado en Kaggle con licencia [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-## Cómo funciona
-
-```
-fuente  →  extracción  →  limpieza  →  data/processed/  →  análisis
-```
-
-1. **Extracción** (`src/...`): ...
-2. **Limpieza** (`src/...`): ...
-3. **Análisis** (`notebooks/analisis.ipynb`): ...
+Los CSV originales no se versionan. Para reproducir el análisis, descarga el dataset de Kaggle y descomprime los CSV en `data/raw/`.
 
 ## Estructura
 
 ```
-├── src/                 # Código del pipeline
-├── notebooks/           # Exploración, limpieza y análisis
+├── src/                 # Carga de los CSV en DuckDB y funciones auxiliares
+├── notebooks/           # Exploración y análisis
 ├── data/
-│   ├── raw/             # Datos en bruto (no se versionan)
-│   └── processed/       # Datos limpios
+│   ├── raw/             # CSV originales de Kaggle (no se versionan)
+│   └── processed/       # Tablas agregadas para el dashboard
 ├── reports/figuras/     # Gráficos exportados desde el notebook
 └── tests/               # Tests con pytest
 ```
@@ -46,20 +41,5 @@ Requiere Python 3.13.
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements-dev.txt
-```
-
-**Pipeline.**
-
-```bash
-python src/main.py
-```
-
-**Tests.**
-
-```bash
 pytest
 ```
-
-## Limitaciones
-
-- ...
